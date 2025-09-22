@@ -193,12 +193,22 @@ Ekstra utfordring: Lag et nytt array som kun inkluderer elementer som inneholder
 ******************************************************************************/
 
 // Skriver (og tester) alle hver for seg først
-items.shift();
-items.splice(items.indexOf("Viskelær"), 1, "Linjal");
-items.splice(0, 2, "Markeringspenn");
+// items.shift();
+// items.splice(items.indexOf("Viskelær"), 1, "Linjal");
+// items.splice(0, 2, "Markeringspenn");
 
 // Disse endrer original array, så kjører derfor console.log på den originale "items"-arrayen.
-console.log(items);
+// console.log(items);
+
+// Setter det inn i en funksjon
+function modifyArray(array) {
+  array.shift();
+  array.splice(array.indexOf("Viskelær"), 1, "Linjal");
+  array.splice(0, 2, "Markeringspenn");
+  return array;
+}
+
+console.log(modifyArray(items));
 
 const newItems = items.join(" | ");
 console.log(newItems);
