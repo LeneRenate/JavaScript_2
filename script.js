@@ -21,7 +21,16 @@ funksjonen)
 
 ******************************************************************************/
 
-// Skriv koden for oppgave 1 her
+function erOddetall(tall) {
+  let rest = tall % 2;
+  if (rest === 0) {
+    return `Partall`;
+  } else {
+    return `Oddetall`;
+  }
+}
+
+console.log(erOddetall(5));
 
 /******************************************************************************
 2.
@@ -35,7 +44,11 @@ Eksempel: "Dette er kult" skal returnere "DETTE ER KULT!"
 
 ******************************************************************************/
 
-// Skriv koden for oppgave 2 her
+function capitalize(wordString) {
+  return wordString.toUpperCase() + "!";
+}
+
+console.log(capitalize("javascript er gøy"));
 
 /******************************************************************************
 3.
@@ -44,8 +57,8 @@ Lag følgende funksjon:
 
 Funksjonen skal ta inn 2 parametere:
 
- - Et navn (string)
- - En time på døgnet (nummer)
+  - Et navn (string)
+  - En time på døgnet (nummer)
 
 Funksjonen skal returnere:
 "Ugyldig tid" hvis timeverdien er mindre enn 0.
@@ -59,7 +72,7 @@ Hvis ingen timeverdi mottas, skal funksjonen returnere en feilmelding.
 
 ******************************************************************************/
 
-// Skriv koden for oppgave 3 her
+function greeting(name, time) {}
 
 /******************************************************************************
 4.
