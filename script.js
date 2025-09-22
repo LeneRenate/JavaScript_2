@@ -31,6 +31,9 @@ function erOddetall(tall) {
 }
 
 console.log(erOddetall(5));
+console.log(erOddetall(2));
+console.log(erOddetall(1001));
+console.log(erOddetall(372094578));
 
 /******************************************************************************
 2.
@@ -48,7 +51,9 @@ function capitalize(wordString) {
   return wordString.toUpperCase() + "!";
 }
 
-console.log(capitalize("javascript er gøy"));
+console.log(capitalize("dette er kult"));
+console.log(capitalize("Hello World"));
+console.log(capitalize("JAvascRipT Er gØy"));
 
 /******************************************************************************
 3.
@@ -72,7 +77,33 @@ Hvis ingen timeverdi mottas, skal funksjonen returnere en feilmelding.
 
 ******************************************************************************/
 
-function greeting(name, time) {}
+function greeting(name, time) {
+  if (time === undefined) {
+    return `Error: Husk å skriv inn både navn og tid`;
+  } else if (time < 0 || time > 23) {
+    return `Ugyldig tid`;
+  } else if (time < 6) {
+    return `God natt ${name}`;
+  } else if (time < 12) {
+    return `God morgen ${name}`;
+  } else if (time < 18) {
+    return `God dag ${name}`;
+  } else if (time < 24) {
+    return `God kveld ${name}`;
+  }
+}
+
+console.log(greeting("Jake", 6));
+console.log(greeting("Jake", 7));
+console.log(greeting("Amy", 0));
+console.log(greeting("Amy", 4));
+console.log(greeting("Charles", 12));
+console.log(greeting("Charles", 15));
+console.log(greeting("Terry", 18));
+console.log(greeting("Terry", 23));
+console.log(greeting("Rosa", 25));
+console.log(greeting("Rosa", -3));
+console.log(greeting("Gina"));
 
 /******************************************************************************
 4.
@@ -89,7 +120,15 @@ Eksempel 2: ["En", "To", "Tre", "Fire", "Fem", "Seks"] skal returnere
 
 ******************************************************************************/
 
-// Skriv koden for oppgave 4 her
+const colors = ["Rød", "Grønn", "Blå", "Gul"];
+const num = ["En", "To", "Tre", "Fire", "Fem", "Seks"];
+
+function cutTheArray(array) {
+  return array.slice(1, -1);
+}
+
+console.log(cutTheArray(colors));
+console.log(cutTheArray(num));
 
 /******************************************************************************
 5.
@@ -99,8 +138,8 @@ Lag følgende funksjon:
 Funksjonen skal ta inn en string som parameter.
 
 Bruk stringmetoder på stringen for å gjøre følgende:
- - Erstatt ordet "vanskelig" med "gøy".
- - Fjern mellomrom fra starten og slutten av stringen.
+  - Erstatt ordet "vanskelig" med "gøy".
+  - Fjern mellomrom fra starten og slutten av stringen.
 
 Returner deretter den oppdaterte stringen.
 
