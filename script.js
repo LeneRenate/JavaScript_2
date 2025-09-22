@@ -21,19 +21,21 @@ funksjonen)
 
 ******************************************************************************/
 
-function erOddetall(tall) {
-  let rest = tall % 2;
-  if (rest === 0) {
-    return `Partall`;
-  } else {
-    return `Oddetall`;
-  }
-}
+const erOddetall = (tall) =>
+  typeof tall !== "number"
+    ? "Du må taste inn et tall"
+    : tall % 2 === 0
+    ? "Partall"
+    : "Oddetall";
+
+// Velger arrow-funksjon (med ternery) for denne oppgaven, siden det er en ganske kort og oversiktelig funksjon.
+// Har også valgt å legge inn en typeof-sjekk, som idiotforsikring.
 
 console.log(erOddetall(5));
 console.log(erOddetall(2));
 console.log(erOddetall(1001));
 console.log(erOddetall(372094578));
+console.log(erOddetall("Trettito"));
 
 /******************************************************************************
 2.
@@ -47,9 +49,11 @@ Eksempel: "Dette er kult" skal returnere "DETTE ER KULT!"
 
 ******************************************************************************/
 
-function capitalize(wordString) {
+const capitalize = (wordString) => {
   return wordString.toUpperCase() + "!";
-}
+};
+
+// Igjen - en kort funksjon => arrow
 
 console.log(capitalize("dette er kult"));
 console.log(capitalize("Hello World"));
@@ -93,6 +97,8 @@ function greeting(name, time) {
   }
 }
 
+// Starter med å "fjerne" de ugyldige tidene. Slik går det an å teste alle andre tidspunkter "ensidig", så lenge du gjør det i riktig rekkefølge
+
 console.log(greeting("Jake", 6));
 console.log(greeting("Jake", 7));
 console.log(greeting("Amy", 0));
@@ -123,9 +129,15 @@ Eksempel 2: ["En", "To", "Tre", "Fire", "Fem", "Seks"] skal returnere
 const colors = ["Rød", "Grønn", "Blå", "Gul"];
 const num = ["En", "To", "Tre", "Fire", "Fem", "Seks"];
 
+// function cutTheArray(array) {
+//   return array.slice(1, array.length-1);
+// }
+
 function cutTheArray(array) {
   return array.slice(1, -1);
 }
+
+// For å korte ned koden bruker jeg -1 istedet for array.length-1, da arrayen skal telle bakfra ved negativ index.
 
 console.log(cutTheArray(colors));
 console.log(cutTheArray(num));
@@ -149,7 +161,13 @@ Eksempel 3: "   vanskelig        " skal returnere "gøy".
 
 ******************************************************************************/
 
-// Skriv koden for oppgave 5 her
+function detteErGøy(string) {
+  return string.trim().replace("vanskelig", "gøy");
+}
+
+console.log(detteErGøy("Javascript er vanskelig"));
+console.log(detteErGøy("Det er vanskelig å bruke metoder"));
+console.log(detteErGøy("   vanskelig        "));
 
 /******************************************************************************
 6.
@@ -174,7 +192,16 @@ Ekstra utfordring: Lag et nytt array som kun inkluderer elementer som inneholder
 
 ******************************************************************************/
 
-// Skriv koden for oppgave 6 her
+// Skriver (og tester) alle hver for seg først
+items.shift();
+items.splice(items.indexOf("Viskelær"), 1, "Linjal");
+items.splice(0, 2, "Markeringspenn");
+
+// Disse endrer original array, så kjører derfor console.log på den originale "items"-arrayen.
+console.log(items);
+
+const newItems = items.join(" | ");
+console.log(newItems);
 
 /******************************************************************************
 7.
